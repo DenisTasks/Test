@@ -6,23 +6,25 @@
 CREATE PROCEDURE [dbo].[OverlappingDates] 
 	@beginningDate datetime, 
 	@endingDate datetime,
-	@locationId int
+	@locationId int,
+	@result int OUTPUT
 AS
 DECLARE @test int
-IF 
-	(SELECT COUNT(A.AppointmentId)
+	SELECT @test = COUNT(AppointmentId)
+	FROM Appointments
+
+	SELECT @result = COUNT(A.AppointmentId)
 	FROM Appointments AS A JOIN Appointments AS B
 	ON(A.LocationId = @locationId
 	AND A.BeginningDate < @endingDate
-	AND @beginningDate < A.EndingDate)) > 0
+	AND @beginningDate < A.EndingDate)
+
+	IF @test > 0
 BEGIN
-	SET @test = 1
-	SELECT @test
-	RETURN @test
+	SET @result = (@result / @test)
+	SELECT @result
 END
-ELSE
+	ELSE
 BEGIN
-	SET @test = 0
-	SELECT @test
-	RETURN @test
+	SELECT @result
 END
