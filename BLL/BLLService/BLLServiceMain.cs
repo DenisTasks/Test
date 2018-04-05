@@ -90,6 +90,7 @@ namespace BLL.BLLService
                         }
                         else
                         {
+                            //
                             // default part
                             part.BeginningDate = item.BeginningDate.Date.AddDays(i);
                             part.EndingDate = item.BeginningDate.Date.AddDays(i + 1).AddSeconds(-1);
