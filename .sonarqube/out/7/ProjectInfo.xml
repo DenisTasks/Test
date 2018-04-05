@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>WPFBD</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>32dc4ebb-df30-4095-816d-975b10391b08</ProjectGuid>
+  <FullPath>C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\WPFBD\WPFBD.sqlproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\.sonarqube\out\7\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePath">C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\WPFBD\bin\Debug\WPFBD.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPath">C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\.sonarqube\out\7</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+</ProjectInfo>

@@ -1,0 +1,21 @@
+^
+UC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Appointment.csutf-8X
+OC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Group.csutf-8[
+RC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Location.csutf-8V
+MC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Log.csutf-8_
+VC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Notification.csutf-8W
+NC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Role.csutf-8W
+NC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\User.csutf-8c
+ZC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Helpers\EncryptionHelpers.csutf-8g
+^C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Interfaces\IGenericRepository.csutf-8r
+iC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803011157343_InitialCreate.csutf-8v
+mC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803020933233_AddGroupMigration.csutf-8p
+gC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803061344393_LogCreation.csutf-8l
+cC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803061407542_AlerLog.csutf-8u
+lC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803140926026_ChangedUserModel.csutf-8u
+lC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803211203597_update passwords.csutf-8p
+gC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803231010029_NotifyAdded.csutf-8b
+YC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\Configuration.csutf-8h
+_C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\ModelService\GenericRepository.csutf-8a
+XC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Properties\AssemblyInfo.csutf-8[
+RC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\WPFOutlookContext.csutf-8

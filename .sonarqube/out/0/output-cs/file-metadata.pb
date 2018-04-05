@@ -1,0 +1,29 @@
+W
+UC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Appointment.csQ
+OC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Group.csT
+RC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Location.csO
+MC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Log.csX
+VC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Notification.csP
+NC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\Role.csP
+NC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Entities\User.cs\
+ZC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Helpers\EncryptionHelpers.cs`
+^C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Interfaces\IGenericRepository.csk
+iC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803011157343_InitialCreate.csv
+rC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803011157343_InitialCreate.Designer.cso
+mC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803020933233_AddGroupMigration.csz
+vC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803020933233_AddGroupMigration.Designer.csi
+gC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803061344393_LogCreation.cst
+pC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803061344393_LogCreation.Designer.cse
+cC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803061407542_AlerLog.csp
+lC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803061407542_AlerLog.Designer.csn
+lC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803140926026_ChangedUserModel.csy
+uC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803140926026_ChangedUserModel.Designer.csn
+lC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803211203597_update passwords.csy
+uC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803211203597_update passwords.Designer.csi
+gC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803231010029_NotifyAdded.cst
+pC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\201803231010029_NotifyAdded.Designer.cs[
+YC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Migrations\Configuration.csa
+_C:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\ModelService\GenericRepository.csZ
+XC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\Properties\AssemblyInfo.csT
+RC:\Users\Dzianis_Tarasevich\Desktop\saves\16\WpfOutlook\Model\WPFOutlookContext.cse
+aC:\Users\Dzianis_Tarasevich\AppData\Local\Temp\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs

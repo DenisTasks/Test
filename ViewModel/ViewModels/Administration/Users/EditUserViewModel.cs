@@ -22,7 +22,7 @@ namespace ViewModel.ViewModels.Administration.Users
         private UserModel _user;
         private string _oldUserName;
         private string _oldPassword;
-        private const string _password = "Enter new password if needed";
+        private string _password;
 
         private ObservableCollection<RoleDTO> _roleList;
 
@@ -153,6 +153,7 @@ namespace ViewModel.ViewModels.Administration.Users
 
         public EditUserViewModel(IAdministrationService administrationService)
         {
+            _password = "Enter new password if needed";
             Messenger.Default.Register<UserModel>(this, user =>
             {
                 if (user != null)

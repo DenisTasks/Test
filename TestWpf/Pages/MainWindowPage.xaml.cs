@@ -75,6 +75,7 @@ namespace TestWpf.Pages
             }
             catch (Exception)
             {
+                //
                 //MessageBox.Show(ex.ToString());
             }
         }

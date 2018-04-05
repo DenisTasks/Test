@@ -23,7 +23,7 @@ namespace ViewModel.ViewModels.Appointments
 
         }
 
-        private async void AddMessage(OpenWindowMessage msg)
+        private async Task AddMessage(OpenWindowMessage msg)
         {
             Message4ListBox message4ListBox = new Message4ListBox { Msg = msg.Argument, IsGoing = false };
             Messages.Insert(0, message4ListBox);
