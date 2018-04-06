@@ -65,7 +65,7 @@ namespace BLLServiceTests
 
             var count = vm.Appointments.Count;
             
-            Assert.AreEqual(count, 1);
+            Assert.AreEqual(count, 3);
         }
     }
 }
