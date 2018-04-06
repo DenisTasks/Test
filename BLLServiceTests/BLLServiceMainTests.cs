@@ -37,7 +37,7 @@ namespace BLLServiceTests
 
             var locationId = vm.Location.LocationId;
 
-            Assert.AreEqual(locationId, 1);
+            Assert.AreEqual(locationId, 2);
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace BLLServiceTests
 
             var count = vm.Appointments.Count;
             
-            Assert.AreEqual(count, 1);
+            Assert.AreEqual(count, 2);
         }
     }
 }
