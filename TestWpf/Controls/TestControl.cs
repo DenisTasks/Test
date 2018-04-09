@@ -13,15 +13,14 @@ namespace TestWpf.Controls
     {
         public TestControl() : base() { }
         // Dependency Property
-        public static readonly DependencyProperty CurrentTimeProperty =
-            DependencyProperty.Register("CurrentTime", typeof(DateTime), typeof(TestControl), 
+        public static readonly DependencyProperty CurrentTimeProperty = DependencyProperty.Register("CurrentTime", typeof(DateTime), typeof(TestControl), 
                 new FrameworkPropertyMetadata(DateTime.Now, OnCurrentTimePropertyChanged, OnCoerceCurrentTimeProperty));
 
         // .NET Property wrapper
         public DateTime CurrentTime
         {
-            get { return (DateTime)GetValue(CurrentTimeProperty); }
-            set { SetValue(CurrentTimeProperty, value); }
+            get => (DateTime)GetValue(CurrentTimeProperty);
+            set => SetValue(CurrentTimeProperty, value);
         }
 
         private static void OnCurrentTimePropertyChanged(DependencyObject source,
@@ -40,6 +39,5 @@ namespace TestWpf.Controls
             }
             return data;
         }
-
     }
 }
