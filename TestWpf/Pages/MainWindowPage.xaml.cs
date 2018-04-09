@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using GalaSoft.MvvmLight.Messaging;
+using OutlookLocalization;
 using TestWpf.Appointments;
 using TestWpf.Calendar;
 using TestWpf.Common.Groups;
@@ -89,7 +90,6 @@ namespace TestWpf.Pages
             Messenger.Default.Send(new NotificationMessage("LogOut"));
             this.NavigationService.GoBack();
         }
-
     }
 
     public class AdminVisibilityConverter : IValueConverter

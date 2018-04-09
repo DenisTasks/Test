@@ -165,6 +165,10 @@
       <Project>{c92373ea-87ac-443a-a307-207f5a7ff9cf}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OutlookLocalization\OutlookLocalization.csproj">
+      <Project>{3f3d6360-68a8-4403-a597-551768428c79}</Project>
+      <Name>OutlookLocalization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

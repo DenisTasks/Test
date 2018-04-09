@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="Controls\CalendarLedger.cs" />
     <Compile Include="Controls\CalendarLedgerItem.cs" />
+    <Compile Include="Controls\TestControl.cs" />
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
@@ -266,6 +267,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -279,6 +281,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{8c6cbd53-9249-4a22-9dc8-a113ab33dc4b}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OutlookLocalization\OutlookLocalization.csproj">
+      <Project>{3f3d6360-68a8-4403-a597-551768428c79}</Project>
+      <Name>OutlookLocalization</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{1a1edb8e-f56c-4cf2-b0f9-364523634d9f}</Project>

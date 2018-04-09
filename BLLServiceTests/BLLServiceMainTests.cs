@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using BLL.EntitesDTO;
 using BLL.Interfaces;
 using GalaSoft.MvvmLight.Messaging;
@@ -9,7 +7,6 @@ using Moq;
 using ViewModel.Helpers;
 using ViewModel.Models;
 using ViewModel.ViewModels.Appointments;
-using ViewModel.ViewModels.Authenication;
 
 namespace BLLServiceTests
 {
@@ -43,8 +40,8 @@ namespace BLLServiceTests
         [TestMethod]
         public void CanInitializeAllAppWindow()
         {
-            var mockBLL = new Mock<IBLLServiceMain>();
-            mockBLL.Setup(s => s.GetAppsByLocation(1)).Returns(new List<AppointmentDTO>
+            var mockBll = new Mock<IBLLServiceMain>();
+            mockBll.Setup(s => s.GetAppsByLocation(1)).Returns(new List<AppointmentDTO>
             {
                 new AppointmentDTO
                 {
@@ -55,7 +52,7 @@ namespace BLLServiceTests
 
             AutoMapperConfig.RegisterMappings();
 
-            AllAppByLocationWindowViewModel vm = new AllAppByLocationWindowViewModel(mockBLL.Object);
+            AllAppByLocationWindowViewModel vm = new AllAppByLocationWindowViewModel(mockBll.Object);
 
             Messenger.Default.Send(new OpenWindowMessage
             {

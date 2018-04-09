@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -15,6 +16,7 @@ using BLL.Interfaces;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using OutlookLocalization;
 using ViewModel.Helpers;
 using ViewModel.Models;
 using ViewModel.Notify;
@@ -29,13 +31,16 @@ namespace ViewModel.ViewModels.Appointments
         private readonly INotifyService _notifyService;
         private readonly int _id;
         private readonly DispatcherTimer _timer;
+        private CultureInfo _currentCulture;
 
-        private DateTime _dateTimeNow;
+        private string _dateTimeNow;
         private ObservableCollection<AppointmentModel> _appointments;
         private ObservableCollection<FileInfo> _files;
-        private FileInfo _selectTheme;
+        private ObservableCollection<string> _languages;
+        private FileInfo _selectedTheme;
+        private string _selectedLanguage;
 
-        public DateTime CurrentDateTime
+        public string CurrentDateTime
         {
             get => _dateTimeNow;
             set
@@ -65,16 +70,37 @@ namespace ViewModel.ViewModels.Appointments
                 base.RaisePropertyChanged();
             }
         }
-        public FileInfo SelectedTheme
+        public ObservableCollection<string> Languages
         {
-            get => _selectTheme;
+            get => _languages;
             set
             {
-                _selectTheme = value;
+                _languages = value;
                 base.RaisePropertyChanged();
-                ChangeTheme(_selectTheme);
             }
         }
+
+        public FileInfo SelectedTheme
+        {
+            get => _selectedTheme;
+            set
+            {
+                _selectedTheme = value;
+                base.RaisePropertyChanged();
+                ChangeTheme(_selectedTheme);
+            }
+        }
+        public string SelectedLanguage
+        {
+            get => _selectedLanguage;
+            set
+            {
+                _selectedLanguage = value;
+                base.RaisePropertyChanged();
+                ChangeLanguage(_selectedLanguage);
+            }
+        }
+
 
         #region Commands
         public RelayCommand<AppointmentModel> PrintAppointmentCommand { get; }
@@ -112,19 +138,20 @@ namespace ViewModel.ViewModels.Appointments
             CalendarFrameCommand = new RelayCommand(CalendarFrame);
             CreateGroupCommand = new RelayCommand(CreateGroup);
             #endregion
+
             #region Themes
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Resources");
             var localthemes = new DirectoryInfo(path).GetFiles();
-            if (Files == null)
-                Files = new ObservableCollection<FileInfo>();
+            Files = new ObservableCollection<FileInfo>();
             foreach (var item in localthemes)
             {
                 Files.Add(item);
             }
             SelectedTheme = Files[1];
             #endregion
+
             #region Timer
-            _dateTimeNow = DateTime.Now;
+            _currentCulture = CultureInfo.CurrentCulture;
             _timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
             _timer.Tick += TimerOnTick;
 
@@ -133,6 +160,9 @@ namespace ViewModel.ViewModels.Appointments
             workerTimer.DoWork += workerTimer_DoWork;
             workerTimer.RunWorkerAsync();
             #endregion
+
+            Languages = new ObservableCollection<string> {"English", "Russian"};
+            SelectedLanguage = Languages[0];
 
             Messenger.Default.Register<NotificationMessage>(this, message =>
             {
@@ -160,7 +190,7 @@ namespace ViewModel.ViewModels.Appointments
         }
         private void TimerOnTick(object sender, EventArgs e)
         {
-            CurrentDateTime = DateTime.Now;
+            CurrentDateTime = DateTime.Now.ToString("F", _currentCulture);
         }
 
         public void RemoveNotifyFromDatabase(object sender, NotifyEventArgs args)
@@ -189,10 +219,25 @@ namespace ViewModel.ViewModels.Appointments
         {
             PrintHelper.PrintViewList(parameter as ListView);
         }
-        private void ChangeTheme(FileInfo selectTheme)
+        private void ChangeTheme(FileInfo selectedTheme)
         {
             Application.Current.Resources.Clear();
-            Application.Current.Resources.Source = new Uri(selectTheme.FullName, UriKind.Absolute);
+            Application.Current.Resources.Source = new Uri(selectedTheme.FullName, UriKind.Absolute);
+        }
+
+        private void ChangeLanguage(string selectedLanguage)
+        {
+            switch (selectedLanguage)
+            {
+                case "English":
+                    _currentCulture = new CultureInfo("en-US");
+                    break;
+                case "Russian":
+                    _currentCulture = new CultureInfo("ru-RU");
+                    break;
+            }
+
+            LocalizationManager.UICulture = new CultureInfo(_currentCulture.Name);
         }
         private void AddAppointment()
         {

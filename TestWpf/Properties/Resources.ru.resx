@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AdminButtonContent" xml:space="preserve">
-    <value>To Admin Page</value>
+    <value>Панель администратора</value>
   </data>
   <data name="MainPageCalendar" xml:space="preserve">
-    <value>Calendar</value>
+    <value>Календарь</value>
   </data>
   <data name="MainPageCreateGroup" xml:space="preserve">
-    <value>Create Group</value>
+    <value>Создать группу</value>
   </data>
 </root>

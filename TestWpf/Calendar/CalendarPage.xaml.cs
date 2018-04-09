@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Navigation;
-using BLL.EntitesDTO;
 using TestWpf.Controls;
 
 namespace TestWpf.Calendar
