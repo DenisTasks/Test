@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,21 @@ using ViewModel.ViewModels.Authenication;
 
 namespace ViewModel.ViewModels.Appointments
 {
+    [ServiceContract]
+    public interface IMyObject
+    {
+        [OperationContract]
+        void GetCommand();
+    }
+
+    public class MyObject : IMyObject
+    {
+        public void GetCommand()
+        {
+            MessageBox.Show(DateTime.Now.ToString("D"));
+        }
+    }
+
     public class MainWindowViewModel : ViewModelBase
     {
         private readonly IBLLServiceMain _service;
@@ -32,6 +48,7 @@ namespace ViewModel.ViewModels.Appointments
         private readonly int _id;
         private readonly DispatcherTimer _timer;
         private CultureInfo _currentCulture;
+        private ServiceHost _host;
 
         private string _dateTimeNow;
         private ObservableCollection<AppointmentModel> _appointments;
@@ -123,6 +140,10 @@ namespace ViewModel.ViewModels.Appointments
             _logService = logService;
             _notifyService = notifyService;
 
+            //_host = new ServiceHost(typeof(MyObject), new Uri("http://localhost:1050/TestService"));
+            //_host.AddServiceEndpoint(typeof(IMyObject), new BasicHttpBinding(), "");
+            //_host.Open();
+
             Scheduler.RemoveFromDataBase += RemoveNotifyFromDatabase;
             LoadData();
 
@@ -180,6 +201,8 @@ namespace ViewModel.ViewModels.Appointments
                     // ReSharper disable once DelegateSubtraction
                     Scheduler.RemoveFromDataBase -= RemoveNotifyFromDatabase;
                     Scheduler.Shutdown();
+
+                    _host?.Close();
                 }
             });
         }
@@ -192,12 +215,10 @@ namespace ViewModel.ViewModels.Appointments
         {
             CurrentDateTime = DateTime.Now.ToString("F", _currentCulture);
         }
-
         public void RemoveNotifyFromDatabase(object sender, NotifyEventArgs args)
         {
             _notifyService.RemoveFromNotification(args.NotifyId, _id);
         }
-
         private void LoadData()
         {
             try
@@ -224,7 +245,6 @@ namespace ViewModel.ViewModels.Appointments
             Application.Current.Resources.Clear();
             Application.Current.Resources.Source = new Uri(selectedTheme.FullName, UriKind.Absolute);
         }
-
         private void ChangeLanguage(string selectedLanguage)
         {
             switch (selectedLanguage)
@@ -304,6 +324,16 @@ namespace ViewModel.ViewModels.Appointments
                 {
                     MessageBox.Show(e.ToString());
                 }
+            }
+            else
+            {
+                Uri tcpUri = new Uri("http://localhost:1050/TestService");
+                EndpointAddress address = new EndpointAddress(tcpUri);
+                BasicHttpBinding binding = new BasicHttpBinding();
+                ChannelFactory<IMyObject> factory = new ChannelFactory<IMyObject>(binding, address);
+                IMyObject service = factory.CreateChannel();
+
+                service.GetCommand();
             }
         }
         private void GroupBySubject()

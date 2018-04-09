@@ -93,7 +93,10 @@
                     Margin="2, 3"
                     Content="{Loc AdminButtonContent}" />
 
-            <controls:TestControl x:Name="TestControl" Content="{Binding ElementName=TestControl, Path=CurrentTime}" />
+            <controls:TestControl x:Name="TestControl" 
+                                  Content="{Binding ElementName=TestControl, Path=CurrentTime}"
+                                  Padding="5"
+                                  Margin="2, 3" />
 
             <Button Click="ButtonBase_Click_ToLoginPage"
                     Padding="5"

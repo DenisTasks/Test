@@ -1,11 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Threading;
 using GalaSoft.MvvmLight.Messaging;
-using OutlookLocalization;
 using TestWpf.Appointments;
 using TestWpf.Calendar;
 using TestWpf.Common.Groups;
@@ -16,9 +17,20 @@ namespace TestWpf.Pages
 {
     public partial class MainWindowPage : Page
     {
+        private readonly DispatcherTimer _timer;
+
         public MainWindowPage()
         {
             InitializeComponent();
+
+            _timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
+            _timer.Tick += TimerOnTick;
+
+            BackgroundWorker workerTimer = new BackgroundWorker();
+            workerTimer.WorkerSupportsCancellation = true;
+            workerTimer.DoWork += workerTimer_DoWork;
+            workerTimer.RunWorkerAsync();
+
             Messenger.Default.Register<OpenWindowMessage>(
                 this,
                 message => {
@@ -68,6 +80,7 @@ namespace TestWpf.Pages
         {
             try
             {
+                _timer?.Stop();
                 this.NavigationService.Navigate(new AdminPage());
             }
             catch (System.Security.SecurityException)
@@ -85,10 +98,21 @@ namespace TestWpf.Pages
         {
             Messenger.Default.Unregister<OpenWindowMessage>(this);
             Messenger.Default.Unregister<NotificationMessage>(this);
+            _timer?.Stop();
             CustomPrincipal customPrincipal = Thread.CurrentPrincipal as CustomPrincipal;
             customPrincipal.Identity = new AnonymousIdentity();
             Messenger.Default.Send(new NotificationMessage("LogOut"));
             this.NavigationService.GoBack();
+        }
+
+        private void workerTimer_DoWork(object sender, DoWorkEventArgs e)
+        {
+            _timer?.Start();
+        }
+
+        private void TimerOnTick(object sender, EventArgs e)
+        {
+            TestControl.CurrentTime = Convert.ToDateTime(DateTime.Now);
         }
     }
 
