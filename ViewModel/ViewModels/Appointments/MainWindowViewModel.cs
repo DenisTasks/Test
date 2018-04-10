@@ -327,13 +327,13 @@ namespace ViewModel.ViewModels.Appointments
             }
             else
             {
-                Uri tcpUri = new Uri("http://localhost:1050/TestService");
-                EndpointAddress address = new EndpointAddress(tcpUri);
-                BasicHttpBinding binding = new BasicHttpBinding();
-                ChannelFactory<IMyObject> factory = new ChannelFactory<IMyObject>(binding, address);
-                IMyObject service = factory.CreateChannel();
+                //Uri tcpUri = new Uri("http://localhost:1050/TestService");
+                //EndpointAddress address = new EndpointAddress(tcpUri);
+                //BasicHttpBinding binding = new BasicHttpBinding();
+                //ChannelFactory<IMyObject> factory = new ChannelFactory<IMyObject>(binding, address);
+                //IMyObject service = factory.CreateChannel();
 
-                service.GetCommand();
+                //service.GetCommand();
             }
         }
         private void GroupBySubject()
